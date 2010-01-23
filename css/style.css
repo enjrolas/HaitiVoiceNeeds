@@ -1,0 +1,35 @@
+div.transcription_block{
+    background-color:  #CCCCEE;
+    padding: 1%;
+    margin-top: 2%;
+    width: 90%;
+    margin-left: 2%;
+
+}
+
+div.recording{
+float: left;
+text-align: left;
+background-color: #EEEEEE;
+width: 90%;
+padding: 2%;
+margin-top: 1%;
+margin-left: 2%;
+}
+
+div.transcription{
+float: left;
+text-align: left;
+width: 90%;
+margin-left: 2%;
+padding: 2%;
+background-color: #BBDDBB;
+}
+
+div.machineTranscription{
+    width: 80%;
+    padding: 2%;
+    text-align: justify;
+    font-style: italic;
+}
+

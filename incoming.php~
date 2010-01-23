@@ -1,0 +1,12 @@
+<?php
+require_once("config.php");
+    header("content-type: text/xml");
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n
+<Response>
+    <Say>After the beep, say what your situation is and we'll get the information out</Say>
+    <Record transcribe='true' transcribeCallback='".$root_url."insert.php'
+        action='insert.php' finishOnKey='#' maxLength='120' />
+</Response>";
+
+?>
+

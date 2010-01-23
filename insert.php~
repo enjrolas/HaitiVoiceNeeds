@@ -1,0 +1,5 @@
+$body .= $_REQUEST['RecordingUrl'];
+$body .= "\"><img class=\"aligncenter\" src=\"http://farm3.static.flickr.com/2538/4082861842_cd8c3f7bfb_m.jpg\"></a></p>";
+$body.="<h2 style=\"text-align:  center;\">click the image to listen!</h2>\n</center>";
+$body .= "<hr><br/><b>Auto-transcription:</b><br/>";
+$body .= $_REQUEST['TranscriptionText']."\n\n";

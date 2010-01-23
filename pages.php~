@@ -1,0 +1,16 @@
+<?php
+
+require_once("header.php");
+
+function printHeader()
+{
+  echo "<html><head>";
+  showIcon();  //shows the favicon code
+  useJqueryCSS();
+  useCSS();
+  echo "<title></title></head><body>\n";
+
+  echo "</div>\n";
+}
+
+?>

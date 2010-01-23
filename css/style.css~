@@ -1,0 +1,48 @@
+div.transcription_block{
+    background-color:  #BBBBDD;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    padding: 2%;
+    margin-bottom: 1%;
+    width: 80%;
+    margin-left: 5%;
+}
+
+div.recording{
+float: left;
+text-align: left;
+background-color: #EEEEEE;
+width: 90%;
+padding: 2%;
+margin-top: 1%;
+margin-left: 2%;
+}
+
+div.transcription{
+float: left;
+text-align: left;
+width: 90%;
+margin-left: 2%;
+padding: 2%;
+background-color: #BBDDBB;
+}
+
+div.button{
+    text-align: center;
+}
+
+div.machineTranscription{
+    width: 80%;
+    float: left;
+    padding: 2%;
+    text-align: justify;
+}
+
+textarea{
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+}
