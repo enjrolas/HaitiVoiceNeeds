@@ -71,17 +71,17 @@ letter-spacing: .01em;
 text-align: justify;
 }
 
-div#email{
+div.side_blurb{
 width: 20%;
 float: left;
 margin-left: 2%;
 padding: 1%;
 margin-top: 1%;
-text-align: justify;
+text-align: left;
 }
 
 
-div#api{
+div.text{
 width: 80%;
 float: left;
 margin-left: 2%;
@@ -129,9 +129,6 @@ text-align: center;
 padding: 1%;
 }
 
-button{
-display: inline;
-}
 
 
 div#logobar{

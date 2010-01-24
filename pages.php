@@ -27,7 +27,7 @@ function printMinimalHeader()
 function printFooter()
 {
   addUservoiceWidget();
-  echo "<div id='footer'><a href='AboutUs.html'>About Us</a></div></body></html>";
+  echo "<div id='footer'><a href='about.php'>About Us</a></div></body></html>";
 }
 
 function printBanner()
@@ -44,10 +44,16 @@ Pale Kreyol?  Genye enfomasyon d'Ayiti?  <br/>Rele nan <b>+1 (877) 286-0676</b> 
 
 function printEmailSignup()
 {
-  echo "<div id='email'>
+  echo "<div id='email' class='side_blurb'>
 Join our email list for updates.
 <form id='emailForm' action='#'>Email:  <input type='text' name='email'></form><button onClick='addEmail()'>Join</button>
 </div>";
+}
+
+function printHelpBlurb()
+{
+echo "<div id='help_blurb' class='side_blurb'>
+Help us out!  We need volunteers to help us develop the site and expand our service.  <a href='help.php' target='_blank'>Click here</a> to see a list of what skills we need.</div>";
 }
 
 function addUservoiceWidget()
