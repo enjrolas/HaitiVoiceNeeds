@@ -76,3 +76,29 @@ margin-left: 2%;
 padding: 1%;
 margin-top: 1%;
 }
+
+div#banner{
+width: 90%;
+margin-left: 5%;
+margin-top: 1%;
+padding-left: 5%;
+}
+
+div.call{
+    width: 40%;
+    padding: 1%;
+    float:left;
+    font-size: 125%;
+}
+
+div#englishBanner{
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-topleft:5px;
+    background-color: #FD0002;
+}
+
+div#creoleBanner{
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topright:5px;
+    background-color: #0800B5;
+}

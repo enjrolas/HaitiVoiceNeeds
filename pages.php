@@ -9,6 +9,7 @@ function printHeader()
   useJqueryUICode();
   useCSS();
   echo "<title>Haiti Voice Needs</title></head><body>\n";
+  printBanner();
   include("info.html");
   printEmailSignup();
   echo "<div id='notifications'></div>";
@@ -22,6 +23,18 @@ function printMinimalHeader()
   useJqueryUICode();
   useCSS();
   echo "<title>Haiti Voice Needs</title></head><body>\n";
+}
+
+function printBanner()
+{
+echo "<div id='banner'>
+<div id='englishBanner' class='call'>
+Have information about Haiti?  <br/>Call <b>+1 (877) 293-6031</b> toll-free and tell us about it.
+</div>
+<div id='creoleBanner' class='call'>
+Pale Kreyol?  Genye enfomasyon d'Ayiti?  <br/>Rele nan <b>+1 (877) 286-0676</b> a nou rakonte
+</div>
+</div>";
 }
 
 function printEmailSignup()

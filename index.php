@@ -6,6 +6,9 @@ $query="select * from recordings where transcribed is null";
 $result=mysql_query($query) or die(mysql_error());
 
 printHeader();
+if(mysql_num_rows($result)==0)
+  echo "<div class='transcription_block'>There are no calls to transcribe right now</div>";
+
 for($index=0;$index<mysql_num_rows($result);$index++)
   {
     $row=mysql_fetch_array($result);
