@@ -1,5 +1,6 @@
 body{
 font-family: Verdana,Geneva,sans-serif;
+background-color: #EEEEEE;
 }
 
 div.transcription_block{
@@ -15,14 +16,23 @@ div.transcription_block{
     -moz-border-radius-topright:5px;
 }
 
+embed{
+background-color: #EEEEEE;
+}
+
 div.recording{
 float: left;
-text-align: left;
+text-align: center;
 background-color: #EEEEEE;
 width: 90%;
 padding: 2%;
 margin-top: 1%;
 margin-left: 2%;
+}
+
+.checkbox{
+    height: 30px;
+    width: 30px;
 }
 
 div#notifications{
@@ -52,13 +62,24 @@ div.machineTranscription{
 }
 
 div#info{
-width: 60%;
+width: 70%;
 float: left;
 margin-left: 2%;
 padding: 1%; 
 font-size: 110%;
 letter-spacing: .01em;
+text-align: justify;
 }
+
+div#email{
+width: 20%;
+float: left;
+margin-left: 2%;
+padding: 1%;
+margin-top: 1%;
+text-align: justify;
+}
+
 
 div#api{
 width: 80%;
@@ -69,19 +90,12 @@ font-size: 110%;
 letter-spacing: .01em;
 }
 
-div#email{
-width: 30%;
-float: left;
-margin-left: 2%;
-padding: 1%;
-margin-top: 1%;
-}
-
 div#banner{
 width: 90%;
 margin-left: 5%;
 margin-top: 1%;
 padding-left: 5%;
+overflow: hidden;
 }
 
 div.call{
@@ -89,16 +103,42 @@ div.call{
     padding: 1%;
     float:left;
     font-size: 125%;
+    padding-bottom: 11%;
+    margin-bottom: -10%;
+    text-align: justify;
 }
 
 div#englishBanner{
     -moz-border-radius-bottomleft:5px;
     -moz-border-radius-topleft:5px;
-    background-color: #FD0002;
+    background-color: #FD2222;
 }
 
 div#creoleBanner{
     -moz-border-radius-bottomright:5px;
     -moz-border-radius-topright:5px;
     background-color: #0800B5;
+    color: #FFFFFF;
+}
+
+div#footer{
+float: left;
+width: 90%;
+margin-left: 4%;
+text-align: center;
+padding: 1%;
+}
+
+button{
+display: inline;
+}
+
+
+div#logobar{
+font-weight: bold;
+font-size: 300%;
+letter-spacing: .1em;
+padding: 1%;
+text-align: center;
+background-color: #DDDDEE;
 }

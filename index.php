@@ -28,14 +28,14 @@ function showTranscription($row)
   echo "
 <div class='transcription_block' id='$blockID'>
    <div class='recording'>
-      <EMBED height='50' SRC='$url' VOLUME='50' loop='false' controls='console' AUTOSTART='FALSE' width='90%'>
+      <EMBED height='50' SRC='$url' VOLUME='50' loop='false' controls='console' AUTOSTART='FALSE' width='90%' bgcolor='#EEEEEE'>
     </div>
 
    <div class='transcription'>
       <form action=".$_SERVER['PHP_SELF']." id='$formID' method='post'>
          <input type='hidden' name='id' value='$id'>
          <textarea class='text' name='transcription' id='$transcriptionName' cols='80' rows='5' onClick=\"clearElement($transcriptionName)\">Enter your transcription here</textarea><br/>
-<input type='checkbox' name='actionable'>Check this box if there's a specific action someone can take in response to this message<br/>
+<input type='checkbox' class='checkbox' name='actionable'>Check this box if there's a specific action someone can take in response to this message<br/>
       </form>
 <center><button onClick=\"submitTranscription($id)\">Save Transcription</button></center>
 

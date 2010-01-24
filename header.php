@@ -1,13 +1,4 @@
 <?php
-function showIcon()
-{
-
-}
-
-function showLogo()
-{
-
-}
 
 function useJqueryUICode()
 {
@@ -22,7 +13,7 @@ function useCSS()
 
 function printFooter()
 {
-  echo "</body></html>";
+  echo "<div id='footer'><a href='AboutUs.html'>About Us</a></div></body></html>";
 }
 
 ?>
