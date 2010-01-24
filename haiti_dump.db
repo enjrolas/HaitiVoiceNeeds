@@ -1,0 +1,80 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: haiti
+-- ------------------------------------------------------
+-- Server version	5.0.75-0ubuntu10
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `recordings`
+--
+
+DROP TABLE IF EXISTS `recordings`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `recordings` (
+  `recording_id` int(11) NOT NULL auto_increment,
+  `url` text,
+  `auto_transcription` text,
+  `user_transcription` text,
+  `transcribed` tinyint(1) default NULL,
+  `duration` int(11) default NULL,
+  PRIMARY KEY  (`recording_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `recordings`
+--
+
+LOCK TABLES `recordings` WRITE;
+/*!40000 ALTER TABLE `recordings` DISABLE KEYS */;
+INSERT INTO `recordings` VALUES (1,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc0c8876d64dff3a7a22a357f42ecfc81','','hey--I wanna see this work',1,NULL),(2,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc0c8876d64dff3a7a22a357f42ecfc81','Hey wanna see if this works st.','hey i wanna see if this works.',1,NULL),(3,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE7ea385476dd364f4818d989691257bbe','','Enter your transcription here',1,NULL),(4,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE7ea385476dd364f4818d989691257bbe','Hey I\'m just making a call and we\'ll see what happens thanks.','Enter your transcription here',1,NULL),(5,'http://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REcf59f447e0b6540799df9a6e511ee492','','Enter your transcription here',1,NULL),(6,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REcf59f447e0b6540799df9a6e511ee492','It\'s.','this translation',1,NULL),(7,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE14aa4d41624eb0c960381d79da8966e3','Hey I just wanna see if this works with freeze.','',1,NULL),(8,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE2cd02cb90cf5e4cda545c77ae04b5349','Hey really just to.','Enter your transcription here',1,NULL),(9,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE67a71781100d44a7d136d210d68de831','Vision pouring out of.','Enter your transcription here',1,NULL),(10,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REc3af4ee2f1cc4ad7cec41cf6675e958b','This is a test me I\'m testing the system.','this is a test.  I\\\'m testing the system.',1,NULL),(11,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REb523602f6941107e1d0fe599adf9b97a','Hey this is a test.','Hey this is a test.',1,NULL),(12,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE6b18b2cdc59e760ac198cde37fe81bd7','This is a test.','Enter your transcription here',1,NULL),(13,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REb7d3f6ff7a7fdf1626c263859a5401b2','This is a test this is a test hi.','this is a test',1,NULL),(14,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REd67a7fdf58bb150aebc50f6d633a024c','Hi I just wanted to test out the translation feature so let\'s ... look you could up on the give me.',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `recordings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transcriptions`
+--
+
+DROP TABLE IF EXISTS `transcriptions`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `transcriptions` (
+  `transcription_id` int(11) NOT NULL auto_increment,
+  `recording_id` int(11) default NULL,
+  `transcription` text,
+  `confidence` int(11) default NULL,
+  PRIMARY KEY  (`transcription_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `transcriptions`
+--
+
+LOCK TABLES `transcriptions` WRITE;
+/*!40000 ALTER TABLE `transcriptions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transcriptions` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2010-01-24  1:10:46

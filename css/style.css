@@ -4,7 +4,11 @@ div.transcription_block{
     margin-top: 2%;
     width: 90%;
     margin-left: 2%;
-
+    float: left;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
 }
 
 div.recording{
@@ -15,6 +19,17 @@ width: 90%;
 padding: 2%;
 margin-top: 1%;
 margin-left: 2%;
+}
+
+div#notifications{
+    width: 95%;
+    background-color: #FFDDDD;
+    float:left;
+    margin-top: 1%;
+    margin-left: 2%;
+    font-size: 125%;
+    font-weight: bold;
+    padding: 1%;
 }
 
 div.transcription{

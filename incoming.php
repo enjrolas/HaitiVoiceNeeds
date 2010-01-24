@@ -5,10 +5,16 @@ require_once("twilio_utils.php");
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n
 <Response>";
 playFile("creole_prompt.mp3");
-echo "
+//does some machine transcription
+/*echo "
     <Record transcribe='true' transcribeCallback='".$root_url."insert.php'
         action='confirm.php' finishOnKey='#' maxLength='120' />
-</Response>";
+*/
+
+//just does the recording, no transcription
+echo "<Record action='".$root_url."insert.php' finishOnKey='#' maxLength='120' />";
+
+echo "</Response>";
 
 ?>
 

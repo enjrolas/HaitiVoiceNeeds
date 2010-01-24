@@ -1,0 +1,13 @@
+require_once("string_utils.php");
+
+$id=$_REQUEST['id'];
+$transcription=$_REQUEST['transcription'];
+if(isset($id))
+  {
+    $id=sanitizeString($id);
+    $transcription=sanitizeString($transcription);
+    $query="update recordings set user_transcription='$transcription', transcribed='1' where recording_id='$id'";
+    mysql_query($query);
+  }
+
+?>

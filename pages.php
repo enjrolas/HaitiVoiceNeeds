@@ -9,7 +9,7 @@ function printHeader()
   useJqueryUICode();
   useCSS();
   echo "<title>Haiti Voice Needs</title></head><body>\n";
-
+  echo "<div id='notifications'></div>";
 }
 
 ?>
