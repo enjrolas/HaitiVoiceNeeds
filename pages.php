@@ -8,12 +8,6 @@ function printHeader()
   useJqueryUICode();
   useCSS();
   echo "<title>Haiti Voice Needs</title></head><body>\n";
-  printLogoBar();
-  printBanner();
-  include("info.html");
-  printEmailSignup();
-  echo "<div id='notifications'></div>";
-
 }
 
 

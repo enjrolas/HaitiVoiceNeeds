@@ -7,7 +7,7 @@ require_once("twilio_utils.php");
 playFile("english_prompt.mp3");
 //does some machine transcription
 echo "
-    <Record transcribe='true' transcribeCallback='".$root_url."insert.php'
+    <Record transcribe='true' transcribeCallback='".$root_url."insert.php?language=english'
         action='confirm.php' finishOnKey='#' maxLength='120' />";
 echo "</Response>";
 
