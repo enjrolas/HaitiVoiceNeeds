@@ -1,3 +1,7 @@
+body{
+font-family: Verdana,Geneva,sans-serif;
+}
+
 div.transcription_block{
     background-color:  #CCCCEE;
     padding: 1%;
@@ -29,7 +33,6 @@ div#notifications{
     margin-left: 2%;
     font-size: 125%;
     font-weight: bold;
-    padding: 1%;
 }
 
 div.transcription{
@@ -48,3 +51,28 @@ div.machineTranscription{
     font-style: italic;
 }
 
+div#info{
+width: 60%;
+float: left;
+margin-left: 2%;
+padding: 1%; 
+font-size: 110%;
+letter-spacing: .01em;
+}
+
+div#api{
+width: 80%;
+float: left;
+margin-left: 2%;
+padding: 1%; 
+font-size: 110%;
+letter-spacing: .01em;
+}
+
+div#email{
+width: 30%;
+float: left;
+margin-left: 2%;
+padding: 1%;
+margin-top: 1%;
+}

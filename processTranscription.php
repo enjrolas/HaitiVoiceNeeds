@@ -12,11 +12,11 @@ if(isset($id))
     $transcription=sanitizeString($transcription);
     $actionable=sanitizeString($actionable);
     $query="update recordings set user_transcription='$transcription', transcribed='1', actionable='$actionable' where recording_id='$id'";
-    mysql_query($query);
+    mysql_query($query) or die(mysql_error());
     
     $subject="New transcribed actionable message from Haiti Voice";
     $body="transcription:  $transcription";
-    sendEmail("voice@teach.laptop.org", $subject, $body);
+    sendEmail("sms@teach.laptop.org", $subject, $body);
 
     $query="select * from recordings where recording_id='$id'";
     $result=mysql_query($query);
@@ -25,8 +25,9 @@ if(isset($id))
 	$row=mysql_fetch_array($result);
 	$callback_url=$row['callback_url'];
 	$transcription=$row['$transcription'];
+	$url=$row['url'];
 	if($callback_url!="")
-	  header("location: $callback_url?transcription=$transcription");
+	  header("location: $callback_url?transcription=$transcription&recording_url=$url");
       }
 
     echo "ok";

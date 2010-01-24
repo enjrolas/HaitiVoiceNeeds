@@ -13,3 +13,12 @@ function submitTranscription(id)
 	    $("div#notifications").html("Transcription saved!  Thanks!");
 	});
 }
+
+function addEmail()
+{
+    variables=$("form#emailForm").serialize();
+    $.post("addEmail.php", variables, function(response){
+	    $("div#notifications").html("We added you to the list.  Thanks!");
+	});
+}
+

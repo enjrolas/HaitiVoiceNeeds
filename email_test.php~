@@ -1,0 +1,3 @@
+<?php
+
+    sendEmail("voice@teach.laptop.org", "test", "test");
