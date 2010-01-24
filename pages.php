@@ -30,6 +30,12 @@ function printMinimalHeader()
   echo "<title>Haiti Voice Needs</title></head><body>\n";
 }
 
+function printFooter()
+{
+  addUservoiceWidget();
+  echo "<div id='footer'><a href='AboutUs.html'>About Us</a></div></body></html>";
+}
+
 function printBanner()
 {
 echo "<div id='banner'>
@@ -48,6 +54,36 @@ function printEmailSignup()
 Join our email list for updates.
 <form id='emailForm' action='#'>Email:  <input type='text' name='email'></form><button onClick='addEmail()'>Join</button>
 </div>";
+}
+
+function addUservoiceWidget()
+{
+  echo "
+<script type='text/javascript'>
+var uservoiceOptions = {
+  /* required */
+  key: 'haitivoice',
+  host: 'haitivoice.uservoice.com', 
+  forum: '39091',
+  showTab: true,  
+  /* optional */
+  alignment: 'left',
+  background_color:'#f00', 
+  text_color: 'white',
+  hover_color: '#06C',
+  lang: 'en'
+};
+
+function _loadUserVoice() {
+  var s = document.createElement('script');
+  s.setAttribute('type', 'text/javascript');
+  s.setAttribute('src', ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.uservoice.com/javascripts/widgets/tab.js');
+    document.getElementsByTagName('head')[0].appendChild(s);
+}
+_loadSuper = window.onload;
+window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+</script>
+";
 }
 
 ?>
