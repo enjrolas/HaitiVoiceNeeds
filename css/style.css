@@ -1,90 +1,88 @@
-body{
-font-family: Verdana,Geneva,sans-serif;
-background-color: #EEEEEE;
+body {
+	font-family: Verdana,Geneva,sans-serif;
+	background-color: #eee;
 }
 
-div.transcription_block{
-    background-color:  #CCCCEE;
+.transcription_block {
+    background-color: #cce;
     padding: 1%;
     margin-top: 2%;
     width: 90%;
     margin-left: 2%;
     float: left;
-    -moz-border-radius-bottomleft:5px;
-    -moz-border-radius-bottomright:5px;
-    -moz-border-radius-topleft:5px;
-    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
 }
 
-.checkbox{
+.checkbox {
     height: 30px;
     width: 30px;
 }
 
-div#notifications{
+#notifications {
     width: 95%;
-    background-color: #FFDDDD;
-    float:left;
+    background-color: #fdd;
+    float: left;
     margin-top: 1%;
     margin-left: 2%;
     font-size: 125%;
     font-weight: bold;
 }
 
-div.transcription{
-float: left;
-text-align: left;
-width: 90%;
-margin-left: 2%;
-padding: 2%;
-background-color: #BBDDBB;
+.transcription {
+	float: left;
+	text-align: left;
+	width: 90%;
+	margin-left: 2%;
+	padding: 2%;
+	background-color: #bdb;
 }
 
-div.machineTranscription{
+.machineTranscription {
     width: 80%;
     padding: 2%;
     text-align: justify;
     font-style: italic;
 }
 
-div#info{
-width: 70%;
-float: left;
-margin-left: 2%;
-padding: 1%; 
-font-size: 110%;
-letter-spacing: .01em;
-text-align: justify;
+#info {
+	width: 70%;
+	float: left;
+	margin-left: 2%;
+	padding: 1%; 
+	font-size: 110%;
+	letter-spacing: .01em;
+	text-align: justify;
 }
 
-div.side_blurb{
-width: 20%;
-float: left;
-margin-left: 2%;
-padding: 1%;
-margin-top: 1%;
-text-align: left;
+.side_blurb {
+	width: 20%;
+	float: left;
+	margin-left: 2%;
+	padding: 1%;
+	margin-top: 1%;
+	text-align: left;
+}
+.text {
+	width: 80%;
+	float: left;
+	margin-left: 2%;
+	padding: 1%; 
+	font-size: 110%;
+	letter-spacing: .01em;
 }
 
-
-div.text{
-width: 80%;
-float: left;
-margin-left: 2%;
-padding: 1%; 
-font-size: 110%;
-letter-spacing: .01em;
+#banner {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 1%;
+	padding-left: 5%;
+	overflow: hidden;
 }
 
-div#banner{
-width: 90%;
-margin-left: 5%;
-margin-top: 1%;
-padding-left: 5%;
-overflow: hidden;
-}
-
-div.call{
+.call {
     width: 40%;
     padding: 1%;
     float:left;
@@ -94,34 +92,32 @@ div.call{
     text-align: justify;
 }
 
-div#englishBanner{
-    -moz-border-radius-bottomleft:5px;
-    -moz-border-radius-topleft:5px;
-    background-color: #FD2222;
+#englishBanner {
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    background-color: #fd2222;
 }
 
-div#creoleBanner{
-    -moz-border-radius-bottomright:5px;
-    -moz-border-radius-topright:5px;
-    background-color: #0800B5;
-    color: #FFFFFF;
+#creoleBanner{
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    background-color: #0800b5;
+    color: #fff;
 }
 
-div#footer{
-float: left;
-width: 90%;
-margin-left: 4%;
-text-align: center;
-padding: 1%;
+#footer {
+	float: left;
+	width: 90%;
+	margin-left: 4%;
+	text-align: center;
+	padding: 1%;
 }
 
-
-
-div#logobar{
-font-weight: bold;
-font-size: 300%;
-letter-spacing: .1em;
-padding: 1%;
-text-align: center;
-background-color: #DDDDEE;
+#logobar {
+	font-weight: bold;
+	font-size: 300%;
+	letter-spacing: .1em;
+	padding: 1%;
+	text-align: center;
+	background-color: #dde;
 }
