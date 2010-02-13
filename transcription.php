@@ -1,30 +1,31 @@
 <?php
+
 require_once("connect.php");
 
-function showAllTranscriptions()
-{
-$query="select * from recordings where transcribed is null";
-$result=mysql_query($query) or die(mysql_error());
-if(mysql_num_rows($result)==0)
-  echo "<div class='transcription_block'>There are no calls to transcribe right now</div>";
-
-for($index=0;$index<mysql_num_rows($result);$index++)
-  {
-    $row=mysql_fetch_array($result);
-    showTranscription($row);
-  }
+function showAllTranscriptions() {
+	$query = "select * from recordings where transcribed is null";
+	$result = mysql_query($query) or die(mysql_error());
+	$num_rows = mysql_num_rows($result);
+	
+	if ($num_rows == 0) {
+		echo "<div class='transcription_block'>There are no calls to transcribe right now</div>";
+	}
+	
+	for ($index = 0; $index < $num_rows; $index++) {
+	    $row = mysql_fetch_array($result);
+	    showTranscription($row);
+	}
 }
 
 function showTranscription($row) {
-	$url=$row['url'];
-	$id=$row['recording_id'];
-	$transcriptionName="transcription".$id;
-	$transcriptionText=$row['auto_transcription'];
-	$formID="form".$id;
-	$blockID="block".$id;
+	$url = $row['url'];
+	$id = $row['recording_id'];
+	$transcriptionText = $row['auto_transcription'];
+
+	$transcriptionName = "transcription".$id;
   
   	echo "
-	<div class='transcription_block' id='$blockID'>
+	<div class='transcription_block' id='block$id'>
 		<div class='recording' id='player-$id'></div>
 	";
   
@@ -32,7 +33,7 @@ function showTranscription($row) {
   
   	echo "
 	<div class='transcription'>
-		<form action=".$_SERVER['PHP_SELF']." id='$formID' method='post'>
+		<form action=".$_SERVER['PHP_SELF']." id='form$id' method='post'>
 			<input type='hidden' name='id' value='$id'>
 			<textarea class='text' name='transcription' id='$transcriptionName' cols='80' rows='5' onClick=\"clearElement($transcriptionName)\">Enter your transcription here</textarea><br/>
 			<input type='checkbox' class='checkbox' name='actionable'>Check this box if there's a specific action someone can take in response to this message<br/>
@@ -41,13 +42,14 @@ function showTranscription($row) {
 	</div>
 	";
 
-  	if($transcriptionText != "")
+  	if($transcriptionText != "") {
 		echo "
 		<div class='machineTranscription'>
 			Machine Transcription:<br/>
 			$transcriptionText
 		</div>";
-
+  	}
+  	
 	echo "</div>"; 
 }
 
