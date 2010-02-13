@@ -72,7 +72,7 @@ function renderAudioControls($id, $url) {
 			<div id='player-volume-bar-value-$id' class='player-volume-bar-value'></div>
 		</div>
 		<div class='player-playlist-message'>
-			<div id='song-title-$id' class='song-title'>Something</div>
+			<div id='song-title-$id' class='song-title'>Message</div>
 			<div id='play-time-$id' class='play-time'></div>
 			<div id='total-time-$id' class='total-time'></div>
 		</div>

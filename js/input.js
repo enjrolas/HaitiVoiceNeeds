@@ -46,5 +46,6 @@ function setup_player (id, url) {
 		var ttMin = (myTotalTime.getUTCMinutes() < 10) ? "0" + myTotalTime.getUTCMinutes() : myTotalTime.getUTCMinutes();
 		var ttSec = (myTotalTime.getUTCSeconds() < 10) ? "0" + myTotalTime.getUTCSeconds() : myTotalTime.getUTCSeconds();
 		$("#player-container-" + id + " .total-time").text(ttMin+":"+ttSec);
-	});
+	})
+	.onSoundComplete(function() {});
 }
