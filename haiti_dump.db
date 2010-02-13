@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `emails`
+--
+
+DROP TABLE IF EXISTS `emails`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `emails` (
+  `email_id` int(11) NOT NULL auto_increment,
+  `email` text,
+  PRIMARY KEY  (`email_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `emails`
+--
+
+LOCK TABLES `emails` WRITE;
+/*!40000 ALTER TABLE `emails` DISABLE KEYS */;
+INSERT INTO `emails` VALUES (1,'alex@nublabs.com'),(2,'test'),(3,'tel4rent@gmail.com'),(4,''),(5,'fgd'),(6,'iceaxe5@gmail.com');
+/*!40000 ALTER TABLE `emails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `recordings`
 --
 
@@ -29,8 +53,14 @@ CREATE TABLE `recordings` (
   `user_transcription` text,
   `transcribed` tinyint(1) default NULL,
   `duration` int(11) default NULL,
+  `callback_url` text,
+  `source` tinytext,
+  `actionable` varchar(5) default NULL,
+  `language` varchar(20) default NULL,
+  `timestamp` datetime default NULL,
+  `phone` varchar(50) default NULL,
   PRIMARY KEY  (`recording_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -39,7 +69,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `recordings` WRITE;
 /*!40000 ALTER TABLE `recordings` DISABLE KEYS */;
-INSERT INTO `recordings` VALUES (1,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc0c8876d64dff3a7a22a357f42ecfc81','','hey--I wanna see this work',1,NULL),(2,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc0c8876d64dff3a7a22a357f42ecfc81','Hey wanna see if this works st.','hey i wanna see if this works.',1,NULL),(3,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE7ea385476dd364f4818d989691257bbe','','Enter your transcription here',1,NULL),(4,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE7ea385476dd364f4818d989691257bbe','Hey I\'m just making a call and we\'ll see what happens thanks.','Enter your transcription here',1,NULL),(5,'http://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REcf59f447e0b6540799df9a6e511ee492','','Enter your transcription here',1,NULL),(6,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REcf59f447e0b6540799df9a6e511ee492','It\'s.','this translation',1,NULL),(7,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE14aa4d41624eb0c960381d79da8966e3','Hey I just wanna see if this works with freeze.','',1,NULL),(8,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE2cd02cb90cf5e4cda545c77ae04b5349','Hey really just to.','Enter your transcription here',1,NULL),(9,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE67a71781100d44a7d136d210d68de831','Vision pouring out of.','Enter your transcription here',1,NULL),(10,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REc3af4ee2f1cc4ad7cec41cf6675e958b','This is a test me I\'m testing the system.','this is a test.  I\\\'m testing the system.',1,NULL),(11,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REb523602f6941107e1d0fe599adf9b97a','Hey this is a test.','Hey this is a test.',1,NULL),(12,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE6b18b2cdc59e760ac198cde37fe81bd7','This is a test.','Enter your transcription here',1,NULL),(13,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REb7d3f6ff7a7fdf1626c263859a5401b2','This is a test this is a test hi.','this is a test',1,NULL),(14,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REd67a7fdf58bb150aebc50f6d633a024c','Hi I just wanted to test out the translation feature so let\'s ... look you could up on the give me.',NULL,NULL,NULL);
+INSERT INTO `recordings` VALUES (1,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc0c8876d64dff3a7a22a357f42ecfc81','','hey--I wanna see this work',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc0c8876d64dff3a7a22a357f42ecfc81','Hey wanna see if this works st.','hey i wanna see if this works.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE7ea385476dd364f4818d989691257bbe','','Enter your transcription here',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE7ea385476dd364f4818d989691257bbe','Hey I\'m just making a call and we\'ll see what happens thanks.','Enter your transcription here',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'http://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REcf59f447e0b6540799df9a6e511ee492','','Enter your transcription here',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REcf59f447e0b6540799df9a6e511ee492','It\'s.','this translation',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE14aa4d41624eb0c960381d79da8966e3','Hey I just wanna see if this works with freeze.','',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE2cd02cb90cf5e4cda545c77ae04b5349','Hey really just to.','Enter your transcription here',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE67a71781100d44a7d136d210d68de831','Vision pouring out of.','Enter your transcription here',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REc3af4ee2f1cc4ad7cec41cf6675e958b','This is a test me I\'m testing the system.','this is a test.  I\\\'m testing the system.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REb523602f6941107e1d0fe599adf9b97a','Hey this is a test.','Hey this is a test.',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE6b18b2cdc59e760ac198cde37fe81bd7','This is a test.','Enter your transcription here',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REb7d3f6ff7a7fdf1626c263859a5401b2','This is a test this is a test hi.','this is a test',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'https://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/REd67a7fdf58bb150aebc50f6d633a024c','Hi I just wanted to test out the translation feature so let\'s ... look you could up on the give me.','Hi.  I just wanted to test out the translation feature so let\\\'s see if it shows up on the DB',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,'http://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE04d19d12cc5d651ba5407f5412126a58','','Hi.  Just checking out the site',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE66a60134b4d857683a0f8ac4ea37f81e','','Enter your transcription here',1,NULL,NULL,NULL,'',NULL,NULL,NULL),(17,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REc1ea3cb3be80a75bf8887ca206f9f7ac','','Enter your transcription here',1,NULL,NULL,NULL,'',NULL,NULL,NULL),(18,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE3b27dbe8c925d84e559d8937756e5104','Hey here I am testing out in Saint Lucia requested Stamp.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE8de17a52d4a5e93c69f215c28dc2efad','','slfjslfjk sdafljksa flkjdf',1,NULL,NULL,NULL,'',NULL,NULL,NULL),(20,'http://api.twilio.com/2008-08-01/Accounts/ACf4d4fd8e6e8d8c77d2d06f91cfdf058f/Recordings/RE57667b061db99f44f19b9d3610cb5be4','','uh, whatever.  I don\\\'t speak creole',1,NULL,NULL,NULL,'','creole',NULL,NULL),(21,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REaa0cb4b8bb4de263f7825a20a6521e0c','Hey just a test recording we\'ll see what happens.',NULL,NULL,NULL,NULL,NULL,NULL,'english',NULL,NULL),(22,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE02d0954e3b2447b5f20b753721322953','Okay just recording this so we can see something to talk about.',NULL,NULL,NULL,NULL,NULL,NULL,'english',NULL,NULL),(23,'http://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/REbe9dc33b87177e7c03813ed6822ed1b4','',NULL,NULL,NULL,NULL,NULL,NULL,'creole','2010-02-13 11:55:47',''),(24,'https://api.twilio.com/2008-08-01/Accounts/ACe1740daf406d4702327b71645f39451a/Recordings/RE475dafccba19c7c79fe39b1e367ffe4c','This is test a please do not in this is Jim Wilson ... position assisting with file surveillance with you she cd and after look at the system and just bye examiner at bye ... I\'m kinda waiting for a Town here so please disregard this this ... message in your output ... okay sort of waiting for a ... telling displaying his since phone number me a call ... well and talk get in touch with ... with you guys here shortly.',NULL,NULL,NULL,NULL,NULL,NULL,'english',NULL,NULL);
 /*!40000 ALTER TABLE `recordings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-01-24  1:10:46
+-- Dump completed on 2010-02-13 19:23:26
