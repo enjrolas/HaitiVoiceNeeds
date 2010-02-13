@@ -1,0 +1,130 @@
+<div id='api' class='text'>
+<p>Haiti Voice Needs has a transcription service that takes a url to
+  an audio file and a callback url.  We list the audio files on our
+  site, where volunteer Creole speakers listen to them and enter a
+  transcription.  When someone transcribes an audio file, we store the
+  transcription in our database and also send a GET request to the
+  callback url associated with the audio file.  We can't guarantee
+  when the transcription will be completed-it's all done by human
+  volunteers, but whenever it finishes, we send the data back to
+  your server so you can integrate the response into your data.
+</p>
+<p>So--how to you use us?  We'll give you a real-world example:
+<b>Andy</b> is a field reporter working with an NGO in Haiti, recording Haitians'
+stories of the quake and their ongoing struggle.  His organization
+wants to put the stories online and make them search-able, but they
+need them transcribed in order to do that.  <b>Andy</b> takes the MP3 files
+he records in the field and puts them online in a directory on his
+server, <i>http://www.haitianstories.org/stories</i>.  He then creates
+a database table that has a field for the URL of his recording and the
+text transcription.  He also writes a script on his server that can
+receive a GET request with transcribed data and insert that into his
+database.  If this is too technical, don't sweat it.  We have code
+below that you can run on any server that has php and mysql.  Then, to
+start the transcription process, he sends an HTTP request(GET or POST
+is fine) to <i>http://www.haitivoiceneeds.org/submit.php</i> with
+three parameters:<br/>
+<ul>
+<li><b>recording_url:</b>  This is an absolute link to his recordings
+  online.  We accept pretty much all recording formats except
+  for Real Audio.</li>
+<li><b>callback_url:</b>  This is the absolute link to the
+  script <b>Andy</b> made on his server.  When we finish transcribing,
+  we'll pass the data back to this script.</li> 
+<li><b>source:</b>  This is his organization's name.  It's optional,
+  but it helps us track who's using our service</li>
+</ul>
+If the request comes through OK and we're able to enter it into our
+database, we respond with 'ok'.
+</p>
+<p>Once <b>Andy</b> sends us this data, we'll add his recordings to
+  our queue of audio to be transcribed.  Everything gets transcribed
+  in the order it's received.  Once someone transcribes his recording,
+  we send a GET request to the callback URL he provided.  The GET
+  request has two parameters:<br/>
+<ul>
+<li><b>transcription:</b>  This is the actual text of the transcription</li>
+<li><b>recording_url:</b>  This is the recording url that <b>Andy</b>
+  sent us earlier.  We sent it back to he knows what file to pair the
+  transcription with</li>
+</ul>
+</p>
+<hr>
+<center><h2>Example Code</h2></center>
+<b>Making a request:</b>  
+Making a request is pretty easy--the simplest way to do it is to 
+make a GET request in php.  
+
+<pre>
+$rootDirectory="http://www.haitianstories.org/";  //the root url of
+Andy's server
+$audioDirectory="audio/";  //the relative path to the directory where he stores his recordings
+$recordings=dirList($audioDirectory);
+$callback_url=$rootDirectory."callback.php";  //the function that
+stores the transcription data on ben's server
+$submit_url="http://www.haitivoiceneeds.org/submit.php"; //the Haiti
+Voice Needs submission URL
+$source="Haitian Stories"; //Andy's organization
+foreach($recordings as $recording)
+{
+   $recording_url=$rootDirectory.$audioDirectory.$recording;
+   header("location: $submit_url?recording_url=$recording_url&callback_url=$callback_url&source=$source");
+}
+
+function dirList ($directory) 
+{
+    // create an array to hold directory list
+    $results = array();
+
+    // create a handler for the directory
+    $handler = opendir($directory);
+
+    // keep going until all files in directory have been read
+    while ($file = readdir($handler)) {
+
+        // if $file isn't this directory or its parent, 
+        // add it to the results array
+        if ($file != '.' && $file != '..')
+            $results[] = $file;
+    }
+
+    // tidy up: close the handler
+    closedir($handler);
+
+    // done!
+    return $results;
+}
+</pre>
+
+<p>This code goes through each file in his audio directory and submits
+  it to our server.  It's not the most robust code--it doesn't make
+  sure he's only submitting audio files, and it doesn't make sure the
+  requests are going through, but it works</p>
+<p>For <b>Andy's</b> callback function, he's going to write a script
+  that inserts the information Haiti Voice sends him into a database.
+  Let's assume he has a table called 'recordings' in a mysql database set up with three columns:
+<ul>
+<li><i>id</i> int auto-increment primary key-- this is the index of 
+his database.  There's a unique ID for each recording</li>
+<li><i>recording_url</i>  text -- this field holds the absolute url of 
+his recordings</li>
+<li><i>transcription</i>  text -- this field holds the transcription 
+that Haiti Voice sends back</li>
+</ul>
+<p>So now, Andy needs a script that takes in the two parameters Haiti
+  Voice returns--'recording_url' and 'transcription', and inserts them
+into his database</p>
+<pre>
+$connection = mysql_connect('localhost', 'andy', 'andypassword' or die ('Error connecting to mysql');
+mysql_select_db('haitianStories', $connection);
+
+$recording_url=$_GET['recording_url'];
+$transcription=$_GET['transcription'];
+
+//you'll want to sanitize the values before inserting them into the
+database.  I'm leaving that out here for simplicity
+
+$query="insert into recordings(recording_url, transcription)
+values('$recording_url', '$transcription')";
+mysql_query($query);
+</pre>
