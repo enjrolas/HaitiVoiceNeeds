@@ -4,7 +4,7 @@
 
 $username="haiti";
 $password="haiti";
-$host="localhost";
+$host="127.0.0.1";
 $database="haiti";
 
 $connection = mysql_connect($host, $username, $password) or die ('Error connecting to mysql');
