@@ -10,19 +10,19 @@ function printHeader() {
 }
 
 function printMinimalHeader() {
-  echo "<!doctype html><html><head>";
-  useJqueryUICode();
-  useCSS();
-  echo "<title>Haiti Voice Needs</title></head><body>";
+	echo "<!doctype html><html><head>";
+	useJqueryUICode();
+	useCSS();
+	echo "<title>Haiti Voice Needs</title></head><body>";
 }
 
 function printLogoBar() {
-  echo "<div id='logobar'>Haiti Voice Needs<img src='images/mobile.jpg' width='50' height='50'></div>";
+	echo "<div id='logobar'>Haiti Voice Needs<img src='images/mobile.jpg' width='50' height='50'></div>";
 }
 
 function printFooter() {
-  addUservoiceWidget();
-  echo "<div id='footer'><a href='about.php'>About Us</a></div></body></html>";
+	addUservoiceWidget();
+	echo "<div id='footer'><a href='about.php'>About Us</a></div></body></html>";
 }
 
 function printBanner() {
