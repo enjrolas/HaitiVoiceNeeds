@@ -3,48 +3,34 @@ body {
 	background-color: #eee;
 }
 
-.transcription_block {
-    background-color: #cce;
-    padding: 1%;
-    margin-top: 2%;
-    width: 90%;
-    margin-left: 2%;
-    float: left;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-}
-
-.checkbox {
-    height: 30px;
-    width: 30px;
-}
-
-#notifications {
-    width: 95%;
-    background-color: #fdd;
-    float: left;
-    margin-top: 1%;
-    margin-left: 2%;
-    font-size: 125%;
-    font-weight: bold;
-}
-
-.transcription {
-	float: left;
-	text-align: left;
+#banner {
 	width: 90%;
-	margin-left: 2%;
-	padding: 2%;
-	background-color: #bdb;
+	margin-left: 5%;
+	margin-top: 1%;
+	padding-left: 5%;
+	overflow: hidden;
 }
 
-.machineTranscription {
-    width: 80%;
-    padding: 2%;
-    text-align: justify;
-    font-style: italic;
+#logobar {
+	font-weight: bold;
+	font-size: 300%;
+	letter-spacing: .1em;
+	padding: 1%;
+	text-align: center;
+	background-color: #dde;
+}
+
+#englishBanner {
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    background-color: #fd2222;
+}
+
+#creoleBanner {
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    background-color: #0800b5;
+    color: #fff;
 }
 
 #info {
@@ -74,12 +60,40 @@ body {
 	letter-spacing: .01em;
 }
 
-#banner {
-	width: 90%;
-	margin-left: 5%;
-	margin-top: 1%;
-	padding-left: 5%;
-	overflow: hidden;
+#notifications {
+    width: 95%;
+    background-color: #fdd;
+    float: left;
+    margin-top: 1%;
+    margin-left: 2%;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+.transcription_block {
+    background-color: #cce;
+    padding: 1em;
+    margin: 1em 2em 0;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+}
+
+.transcription {
+	text-align: left;
+	margin-top: 1em;
+	padding: 1em;
+	background-color: #bdb;
+}
+
+.transcription textarea {
+	width:99%;
+	padding:5px;
+}
+
+.machineTranscription {
+    margin-top: 1em;
 }
 
 .call {
@@ -92,32 +106,10 @@ body {
     text-align: justify;
 }
 
-#englishBanner {
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-topleft: 5px;
-    background-color: #fd2222;
-}
-
-#creoleBanner{
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-topright: 5px;
-    background-color: #0800b5;
-    color: #fff;
-}
-
 #footer {
 	float: left;
 	width: 90%;
 	margin-left: 4%;
 	text-align: center;
 	padding: 1%;
-}
-
-#logobar {
-	font-weight: bold;
-	font-size: 300%;
-	letter-spacing: .1em;
-	padding: 1%;
-	text-align: center;
-	background-color: #dde;
 }

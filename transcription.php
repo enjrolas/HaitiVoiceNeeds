@@ -35,7 +35,7 @@ function showTranscription($row) {
 	<div class='transcription'>
 		<form action=".$_SERVER['PHP_SELF']." id='form$id' method='post'>
 			<input type='hidden' name='id' value='$id'>
-			<textarea class='text' name='transcription' id='$transcriptionName' cols='80' rows='5' onClick=\"clearElement($transcriptionName)\">Enter your transcription here</textarea><br/>
+			<textarea name='transcription' id='$transcriptionName' cols='80' rows='5' onclick=\"clearElement($transcriptionName)\">Enter your transcription here</textarea>
 			<input type='checkbox' class='checkbox' name='actionable'>Check this box if there's a specific action someone can take in response to this message<br/>
 		</form>
 		<center><button onclick=\"submitTranscription($id)\">Save Transcription</button></center>
@@ -45,7 +45,7 @@ function showTranscription($row) {
   	if($transcriptionText != "") {
 		echo "
 		<div class='machineTranscription'>
-			Machine Transcription:<br/>
+			<strong>Machine Transcription:</strong>
 			$transcriptionText
 		</div>";
   	}
