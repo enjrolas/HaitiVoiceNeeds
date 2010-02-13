@@ -5,8 +5,20 @@ require_once("string_utils.php");
 # This is very crude and should be improved
 define('VALID_URL_REGEX', '/^https?:\/\/.+$/i');
 
-function isValidURL($s) {
-    return preg_match(VALID_URL_REGEX, $s);
+function isValidURL($url) {
+    if (!preg_match(VALID_URL_REGEX, $url)) {
+        return false;
+    }
+    $ch = curl_init($url);
+    # use http HEAD request instead of GET (don't retrieve actual content)
+    curl_setopt($ch, CURLOPT_NOBODY, true); 
+    # ensure that 404 and other errors cause curl_exec to return false
+    curl_setopt($ch, CURLOPT_FAILONERROR, true);
+    # automatically follow any redirects (e.g. HTTP status 301)
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
 }
 
 $recording_url=$_REQUEST['recording_url'];
