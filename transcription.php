@@ -18,7 +18,8 @@ function showAllTranscriptions() {
 }
 
 function showTranscription($row) {
-	$url = $row['url'];
+	# Get an mp3 version because that will work better with the JPlayer SWF file.
+	$url = $row['url'].'.mp3';
 	$id = $row['recording_id'];
 	$transcriptionText = $row['auto_transcription'];
 
